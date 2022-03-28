@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9e2851a5-977d-4213-96c0-53f5d97d229e": {
+      "ProjectGuid": "9e2851a5-977d-4213-96c0-53f5d97d229e",
+      "DisplayName": "CQRS_App",
+      "ColorIndex": 0
+    },
+    "752f0d98-3c13-4ea2-aee5-a1de324f2cd3": {
+      "ProjectGuid": "752f0d98-3c13-4ea2-aee5-a1de324f2cd3",
+      "DisplayName": "Core",
+      "ColorIndex": 1
+    },
+    "613a5f96-67b9-4b2e-ad97-1b01096d74e2": {
+      "ProjectGuid": "613a5f96-67b9-4b2e-ad97-1b01096d74e2",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}
