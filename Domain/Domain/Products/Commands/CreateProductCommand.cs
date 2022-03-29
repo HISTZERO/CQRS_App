@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Products.Commands
 {
-    public class UpdateProduct : IRequest<int>
+    public class CreateProductCommand : IRequest<int>
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
         public int Quantity { get; set; }
@@ -18,16 +17,17 @@ namespace Core.Domain.Products.Commands
         public int Price { get; set; }
 
         public int CategoryId { get; set; }
+
     }
 
-
-    public class UpdateProductValidator : AbstractValidator<UpdateProduct>
+    public class CreateProductValidator : AbstractValidator<CreateProductCommand>
     {
-        public UpdateProductValidator()
+        public CreateProductValidator()
         {
-            RuleFor(c => c.Id).NotEmpty();
             RuleFor(c => c.CategoryId).NotEmpty();
             RuleFor(c => c.Name).NotEmpty();
         }
     }
+
+
 }

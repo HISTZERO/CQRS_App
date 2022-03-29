@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Products.Commands
 {
-    public class DeleteProduct : IRequest
+    public class DeleteProductCommand : IRequest
     {
         public int Id { get; set; }
     }
 
-    public class DeleteProductValidator : AbstractValidator<DeleteProduct>
+    public class DeleteProductValidator : AbstractValidator<DeleteProductCommand>
     {
         public DeleteProductValidator()
         {

@@ -14,6 +14,6 @@ namespace Core.Interface
 
          DbSet<Category> Categories { get; set; }
 
-        Task SaveChangesAsync();
+         Task SaveChangesAsync();
     }
 }

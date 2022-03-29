@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Products.Commands
 {
-    public class ProductCommandHandler : IRequestHandler<CreateProduct, int>, IRequestHandler<UpdateProduct, int>, IRequestHandler<DeleteProduct>
+    public class ProductCommandHandler : IRequestHandler<CreateProductCommand, int>, IRequestHandler<UpdateProductCommand, int>, IRequestHandler<DeleteProductCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
         public ProductCommandHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<int> Handle(CreateProduct request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateProductValidator();
             validator.ValidateAndThrow(request);
@@ -38,7 +38,7 @@ namespace Core.Domain.Products.Commands
             return product.Id;
         }
 
-        public async Task<int> Handle(UpdateProduct request, CancellationToken cancellationToken)
+        public async Task<int> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateProductValidator();
             validator.ValidateAndThrow(request);
@@ -58,12 +58,12 @@ namespace Core.Domain.Products.Commands
             return request.Id;
         }
 
-        public async Task<Unit> Handle(DeleteProduct request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
             var validator = new DeleteProductValidator();
             validator.ValidateAndThrow(request);
 
-            var deleteModel = _unitOfWork.Products.Find(request);
+            var deleteModel = _unitOfWork.Products.Where(r => r.Id == request.Id).FirstOrDefault();
 
             if (deleteModel == null)
             {
